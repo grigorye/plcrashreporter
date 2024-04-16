@@ -47,6 +47,7 @@
 
 #include <stdlib.h>	/* for malloc, free */
 #include <string.h>	/* for strcmp, strlen, memcpy, memmove, memset */
+#include <stdio.h>
 
 #include "protobuf-c.h"
 
@@ -81,7 +82,7 @@
 #define MAX_UINT64_ENCODED_SIZE		10
 
 #ifndef PROTOBUF_C_UNPACK_ERROR
-# define PROTOBUF_C_UNPACK_ERROR(...)
+# define PROTOBUF_C_UNPACK_ERROR(...) do { fprintf(stderr, __VA_ARGS__); fputs("\n", stderr); } while (0)
 #endif
 
 #if !defined(_WIN32) || !defined(PROTOBUF_C_USE_SHARED_LIB)
