@@ -34,7 +34,6 @@ let package = Package(
             ],
             cSettings: [
                 .define("PLCR_PRIVATE"),
-                .define("PLCF_RELEASE_BUILD"),
                 .define("PLCRASHREPORTER_PREFIX", to: ""),
                 .define("SWIFT_PACKAGE"), // Should be defined by default, Xcode 11.1 workaround.
                 .headerSearchPath("Dependencies/protobuf-c")
