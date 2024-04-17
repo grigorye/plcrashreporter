@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.description = 'PLCrashReporter is a reliable open source library that provides an in-process live crash reporting framework for use on iOS, macOS and tvOS. The library detects crashes and generates reports to help your investigation and troubleshooting with the information of application, system, process, thread, etc. as well as stack traces.'
 
   spec.homepage    = 'https://github.com/microsoft/plcrashreporter'
-  spec.license     = { :type => 'MIT', :file => 'LICENSE.txt' }
+  spec.license     = { :type => 'MIT', :file => 'LICENSE' }
   spec.authors     = { 'Microsoft' => 'appcentersdk@microsoft.com' }
 
   spec.module_name = 'CrashReporter'
