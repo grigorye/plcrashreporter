@@ -9,13 +9,33 @@ Pod::Spec.new do |spec|
   spec.license     = { :type => 'MIT', :file => 'LICENSE.txt' }
   spec.authors     = { 'Microsoft' => 'appcentersdk@microsoft.com' }
 
+  spec.module_name = 'CrashReporter'
+
   spec.source      = { :http     => "https://github.com/microsoft/plcrashreporter/releases/download/#{spec.version}/PLCrashReporter-Static-#{spec.version}.xcframework.zip",
                        :flatten  => true }
 
-  spec.resource_bundle = { 'PLCrashReporter' => 'CrashReporter.xcframework/PrivacyInfo.xcprivacy' }
+  spec.pod_target_xcconfig = {
+    'HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}/Dependencies/protobuf-c"',
+    'GCC_PREPROCESSOR_DEFINITIONS' => 'PLCR_PRIVATE=1 PLCRASHREPORTER_PREFIX=""',
+  }
+  spec.module_map = 'Resources/CrashReporter.modulemap'
+
+  spec.source_files = [
+    "Source/*.{h,m,c,mm,hpp,cpp,S}",
+    "Dependencies/protobuf-c/**/*.{h,c}"
+  ]
+  spec.private_header_files =
+    "Source/dwarf_opstream.hpp",
+    "Source/dwarf_stack.hpp",
+    "Source/PLCrashAsyncDwarfCFAState.hpp",
+    "Source/PLCrashAsyncDwarfCIE.hpp",
+    "Source/PLCrashAsyncDwarfEncoding.hpp",
+    "Source/PLCrashAsyncDwarfExpression.hpp",
+    "Source/PLCrashAsyncDwarfFDE.hpp",
+    "Source/PLCrashAsyncDwarfPrimitives.hpp",
+    "Source/PLCrashAsyncLinkedList.hpp"
 
   spec.ios.deployment_target    = '11.0'
   spec.osx.deployment_target    = '10.9'
   spec.tvos.deployment_target   = '11.0'
-  spec.vendored_frameworks = "CrashReporter.xcframework"
 end
