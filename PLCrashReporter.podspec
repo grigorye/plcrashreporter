@@ -24,16 +24,6 @@ Pod::Spec.new do |spec|
     "Source/*.{h,m,c,mm,hpp,cpp,S}",
     "Dependencies/protobuf-c/**/*.{h,c}"
   ]
-  spec.private_header_files =
-    "Source/dwarf_opstream.hpp",
-    "Source/dwarf_stack.hpp",
-    "Source/PLCrashAsyncDwarfCFAState.hpp",
-    "Source/PLCrashAsyncDwarfCIE.hpp",
-    "Source/PLCrashAsyncDwarfEncoding.hpp",
-    "Source/PLCrashAsyncDwarfExpression.hpp",
-    "Source/PLCrashAsyncDwarfFDE.hpp",
-    "Source/PLCrashAsyncDwarfPrimitives.hpp",
-    "Source/PLCrashAsyncLinkedList.hpp"
 
   spec.ios.deployment_target    = '11.0'
   spec.osx.deployment_target    = '10.9'
